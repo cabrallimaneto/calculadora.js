@@ -1,0 +1,75 @@
+@charset "UTF-8";
+* {
+                /*LARGURA PRECISA E NAO SER INFLUENCIADA POR PADDING*/
+    box-sizing: border-box;
+    font-family: 'roboto', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to right, #d1e0d7, #9c9b37);
+}
+
+.grid-container {
+    display: grid;
+        /*centralizou horizontalmente a div na pagina*/
+    justify-content: center;
+    align-content: center;
+        /*centralizou verticalmente a div na pagina*/
+    min-height: 100vh;
+        /*deixo nosso grid com 4 columns de 100px*/ 
+    grid-template-columns: repeat(4, 100px);
+        /*5 rows de 100px porem responsivo para o output*/
+    grid-template-rows: minmax(120px, auto)repeat(5, 100px);
+}
+
+.grid-container > button {
+    /*CURSOR E OUTROS ESTILOS*/
+    cursor: pointer;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background-color: rgba(17, 17, 17, 0.89);
+    color: #eee;
+}
+
+.grid-container > button:hover {
+    background-color: #eee;
+    color: #111;
+}
+
+.grid-container > .operator {
+    background: #53532e;
+}
+    
+.span-two {
+    grid-column: span 2;
+}
+    /* FAZENDO O OUTPUT COBRIR UMA LINHA COMPLETA*/
+.grid-container > .output {
+    grid-column: 1 / -1 ;
+    background: rgb(56, 54, 54);
+    /* pra ficar em colunas*/
+    display: flex;
+    flex-direction: column;
+    /* PARA OS ELEMENTOS DIGITADOS FICAREM NO FINAL */
+    align-items: flex-end;
+    /* CRIANDO UM ESPAÇO NO MEIO DAS DIVS */
+    justify-content: space-around;
+    padding: 10px;
+    /* FAZENDO ELES NAO QUEBRAREM FORA DA DIV QUANDO PASSA DO LIMITE DE CARACTERES*/
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.grid-container > .output > .previous-operation {
+    color: rgb(255, 255, 255, 0.75);
+    font-size: 1.3em;
+}
+
+.grid-container > .output > .current-operation {
+    color: white;
+    font-size: 2.5em;
+}
